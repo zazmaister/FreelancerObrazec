@@ -1,0 +1,110 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title>Freelancer.si</title>
+	<meta charset="UTF-8">
+	<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+</head>
+<body ng-app="freelancer">
+	<div class="container" ng-controller="FreelancerController">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 class="text-center">Freelancer.si</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Obrazec za povpraševanja</h3>
+			</div>
+		</div>
+		
+		<form name="AppForm" class="form-horizontal">
+			<div class="row">
+						<div class="form-group">
+							<label class="col-md-2 control-label" for="povprasevanje">Povpraševanje po:</label>
+							<div class="col-md-4">
+					    		<select name ="povprasevanje" class="form-control" id="povprasevanje" ng-options="item for item in array" ng-model="selectedItem" ng-required="true">
+					    			<option value="">-- izberi povpraševanje --</option>
+					    		</select>
+
+							</div>
+							<div class="col-md-2" ng-show="AppForm.povprasevanje.$error.required && AppForm.povprasevanje.$touched">
+								<p class="text-danger">To polje je obvezno!</p>
+							</div>
+						</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<label for="email" class="col-md-2 control-label">Email:</label>
+					<div class="col-md-4">
+						<input class="form-control" type="email" name="email" ng-model="email" ng-required="true" ng-pattern="/\S+@\S+\.\S+/">
+					</div>
+					<div class="col-md-2">
+						<p class="text-danger" ng-show="AppForm.email.$error.required && AppForm.email.$touched">To polje je obvezno!</p>
+						<p class="text-danger" ng-show="AppForm.email.$error.pattern && AppForm.email.$touched">To polje mora biti email(example@example.si)</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<label for="phone" class="col-md-2 control-label">Telefon:</label>
+					<div class="col-md-4">
+						<input class="form-control" type="text" name="phone" ng-model="phone" ng-required="true" ng-pattern="/\d{9}/" ng-maxlength="9">
+					</div>
+					<div class="col-md-2">
+						<p class="text-danger" ng-show="AppForm.phone.$error.required && AppForm.phone.$touched">To polje je obvezno!</p>
+						<p class="text-danger" ng-show="AppForm.phone.$error.pattern && AppForm.phone.$touched">To polje mora biti 9 mestna telefonska številka!</p>
+						<p class="text-danger" ng-show="AppForm.phone.$error.maxlength && AppForm.phone.$touched">To polje vsebuje preveč znakov!</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<label for="naslov" class="col-md-2 control-label">Naslov:</label>
+					<div class="col-md-4">
+						<input class="form-control" type="text" name="naslov" ng-model="naslov" ng-required="true">
+					</div>
+					<div class="col-md-2">
+						<p class="text-danger" ng-show="AppForm.naslov.$error.required && AppForm.naslov.$touched">To polje je obvezno!</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<label for="postnaStevilka" class="col-md-2 control-label">Poštna številka:</label>
+					<div class="col-md-4">
+						<input class="form-control" type="text" name="postnaStevilka" ng-model="postnaStevilka" ng-required="true" ng-pattern = "/\d{4}/" ng-maxlength="4">
+					</div>
+					<div class="col-md-2">
+						<p class="text-danger" ng-show="AppForm.postnaStevilka.$error.required && AppForm.postnaStevilka.$touched">To polje je obvezno!</p>
+						<p class="text-danger" ng-show="AppForm.postnaStevilka.$error.pattern && AppForm.postnaStevilka.$touched">To polje mora biti 4 mestna postna številka!</p>
+						<p class="text-danger" ng-show="AppForm.postnaStevilka.$error.maxlength && AppForm.postnaStevilka.$touched">To polje vsebuje preveč znakov!</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<label for="vprasanje" class="col-md-2 control-label">Vprašanje:</label>
+					<div class="col-md-4">
+						<textarea class="form-control" style="resize:none;" name="vprasanje" rows="3" ng-required="true"></textarea>
+					</div>
+					<div class="col-md-2">
+						<p class="text-danger" ng-show="AppForm.vprasanje.$error.required && AppForm.vprasanje.$touched">To polje je obvezno!</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					
+				</div>	
+				<div class="col-md-4">
+					<button class="btn btn-primary" ng-disabled="">Oddaj</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="script.js"></script>
+</body>
+</html>
