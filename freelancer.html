@@ -88,7 +88,7 @@
 				<div class="form-group">
 					<label for="vprasanje" class="col-md-2 control-label">Vprašanje:</label>
 					<div class="col-md-4">
-						<textarea class="form-control" style="resize:none;" name="vprasanje" rows="3" ng-required="true"></textarea>
+						<textarea class="form-control" ng-model="vprasanje" style="resize:none;" name="vprasanje" rows="3" ng-required="true"></textarea>
 					</div>
 					<div class="col-md-2">
 						<p class="text-danger" ng-show="AppForm.vprasanje.$error.required && AppForm.vprasanje.$touched">To polje je obvezno!</p>
